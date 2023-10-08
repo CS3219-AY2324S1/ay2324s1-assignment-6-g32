@@ -1,8 +1,16 @@
-service: fetch-and-populate-questions
+service: PeerPrep
+
 provider:
   name: aws
   runtime: nodejs18.x
   region: ap-southeast-1
+
 functions:
-  fetchAndPopulate:
-    handler: src/index.handler
+  fetchAndPopulateQuestion:
+    handler: src/functions/fetchAndUpdateQuestion.handler
+    runtime: nodejs18.x
+    runtimeManagement: auto
+    memorySize: 128
+    timeout: 180 # 3 minutes
+    events:
+      - schedule: cron(0 16 * * ? *) # 12am SGT, daily
