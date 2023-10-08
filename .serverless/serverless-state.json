@@ -174,7 +174,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/PeerPrep/dev/1696783508721-2023-10-08T16:45:08.721Z/PeerPrep.zip"
+                "S3Key": "serverless/PeerPrep/dev/1696784127150-2023-10-08T16:55:27.150Z/PeerPrep.zip"
               },
               "Handler": "src/functions/fetchAndUpdateQuestion.handler",
               "Runtime": "nodejs18.x",
@@ -192,14 +192,14 @@
               "FetchAndPopulateQuestionLogGroup"
             ]
           },
-          "FetchAndPopulateQuestionLambdaVersionFJnqu5ie8fSf6fYEi7PD74JK1hPPzaH95wtDopkF0fQ": {
+          "FetchAndPopulateQuestionLambdaVersioncL4dWXBj8RNCMh3veMUmDbUJaha62UUlhMK7WVngUxg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "FetchAndPopulateQuestionLambdaFunction"
               },
-              "CodeSha256": "7Dzml0sZ3J9D8/ccdZeWFh6nC2rqO9D8nCkBz41Q2TM="
+              "CodeSha256": "Qve79Arlgq9g6zWs56IShFhy8Z2EZ7OHwwGjgr1kByg="
             }
           },
           "FetchAndPopulateQuestionEventsRuleSchedule1": {
@@ -252,7 +252,7 @@
           "FetchAndPopulateQuestionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "FetchAndPopulateQuestionLambdaVersionFJnqu5ie8fSf6fYEi7PD74JK1hPPzaH95wtDopkF0fQ"
+              "Ref": "FetchAndPopulateQuestionLambdaVersioncL4dWXBj8RNCMh3veMUmDbUJaha62UUlhMK7WVngUxg"
             },
             "Export": {
               "Name": "sls-PeerPrep-dev-FetchAndPopulateQuestionLambdaFunctionQualifiedArn"
@@ -361,7 +361,7 @@
         "package": {},
         "memory": 128,
         "vpc": {},
-        "versionLogicalId": "FetchAndPopulateQuestionLambdaVersionFJnqu5ie8fSf6fYEi7PD74JK1hPPzaH95wtDopkF0fQ"
+        "versionLogicalId": "FetchAndPopulateQuestionLambdaVersioncL4dWXBj8RNCMh3veMUmDbUJaha62UUlhMK7WVngUxg"
       }
     },
     "configValidationMode": "warn",
@@ -380,7 +380,7 @@
     "artifact": "C:\\Users\\hhell\\ay2324s1-assignment-6-g32\\.serverless\\PeerPrep.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/PeerPrep/dev/1696783508721-2023-10-08T16:45:08.721Z",
+    "artifactDirectoryName": "serverless/PeerPrep/dev/1696784127150-2023-10-08T16:55:27.150Z",
     "artifact": "PeerPrep.zip"
   }
 }
