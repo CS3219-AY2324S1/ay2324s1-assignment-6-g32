@@ -1,10 +1,10 @@
-const { connectToDatabase, closeMongoDbConnection, addOrUpdateQuestion } = require('./src/database');
+const { connectToMongoDb, closeMongoDbConnection, addOrUpdateQuestion } = require('./src/database');
 const { fetchAllQuestionsFromLeetCode } = require('./src/leetcodeApi');
 
 exports.handler = async (event, context) => {
   try {
     // Connect to MongoDB
-    await connectToDatabase();
+    await connectToMongoDb();
 
     // Fetch questions from LeetCode GraphQL API
     const questions = await fetchAllQuestionsFromLeetCode();
