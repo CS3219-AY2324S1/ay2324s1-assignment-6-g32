@@ -3,15 +3,21 @@
 # Software Requirements
 
 Download and install these software if you do not have them locally.
+
 - [AWS CLI](https://aws.amazon.com/cli/)
 
 # Setup
 
-1. Install the Serverless Framework (if not already installed):
-```npm install -g serverless```
+1. Install the Serverless Framework Globally (if not already installed):
+   `npm install -g serverless`
 
-2. Install NodeJS packages
-```cd fetchAndPopulateQuestion/ && npm install```
+2. Install Dependencies
+   `npm install`
 
 3. Configure AWS Credentials
-```aws configure```
+   `aws configure`
+
+- AWS Access Key can be created under Identity and Access Management's (IAM) Security Credential to enable sending of programmatic calls to AWS from the AWS CLI
+
+4. Deploy the Services
+   `serverless deploy`

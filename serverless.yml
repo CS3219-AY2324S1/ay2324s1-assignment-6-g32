@@ -8,6 +8,7 @@ provider:
 functions:
   fetchAndPopulateQuestion:
     handler: src/functions/fetchAndUpdateQuestion.handler
+    description: Fetch from LeetCode API and populate question repository
     runtime: nodejs18.x
     runtimeManagement: auto
     memorySize: 128
