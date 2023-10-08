@@ -5,25 +5,25 @@ const Schema = mongoose.Schema;
 const QuestionSchema = new Schema({
   leetCodeId: {
     type: Number,
-    required: true
+    required: true,
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   complexity: {
     type: String,
-    enum: ['Easy', 'Medium', 'Hard'], // Define the allowed values here
-    required: true
+    enum: ['Easy', 'Medium', 'Hard'],
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   tags: {
     type: [String],
-    required: false
-  }
+    required: false,
+  },
 });
 
 const Question = mongoose.model('Question', QuestionSchema);

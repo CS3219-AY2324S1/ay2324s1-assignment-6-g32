@@ -1,13 +1,13 @@
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const Question = require('./models/question');
+const Question = require('./models/leetCodeQuestion');
 dotenv.config();
 
-const connectToDatabase = async () => {
+const connectToMongoDb = async () => {
   const MONGO_CLIENT = process.env.ATLAS_URI || '';
-  mongoose.connect(MONGO_CLIENT, {
+  await mongoose.connect(MONGO_CLIENT, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   });
 
   const mongoDb = mongoose.connection;
@@ -19,6 +19,15 @@ const connectToDatabase = async () => {
   });
 };
 
+const closeMongoDbConnection = async () => {
+  await mongoose.connection.close();
+};
+
+/**
+ * Adds a new question if it doesn't exist, or updates an existing question.
+ * @param {Object} question - The question object to be added or updated.
+ * @throws {Error} If there was an error while adding/updating the question.
+ */
 const addOrUpdateQuestion = async (question) => {
   try {
     await Question.findOneAndUpdate(
@@ -26,9 +35,9 @@ const addOrUpdateQuestion = async (question) => {
       {
         leetCodeId: question.leetCodeId,
         title: question.title,
-        complexity: question.difficulty,
-        description: question.content,
-        tags: question.tags
+        complexity: question.complexity,
+        description: question.description,
+        tags: question.tags,
       },
       { upsert: true }
     );
@@ -38,6 +47,7 @@ const addOrUpdateQuestion = async (question) => {
 };
 
 module.exports = {
-  connectToDatabase,
-  addOrUpdateQuestion
+  connectToMongoDb,
+  closeMongoDbConnection,
+  addOrUpdateQuestion,
 };
