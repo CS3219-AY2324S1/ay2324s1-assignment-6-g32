@@ -1,1 +1,8 @@
-# your code here
+service: fetch-and-populate-questions
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-southeast-1
+functions:
+  fetchAndPopulate:
+    handler: src/index.handler
