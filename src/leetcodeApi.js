@@ -13,6 +13,7 @@ const fetchAllQuestionsFromLeetCode = async () => {
             name
           }
           content
+          isPaidOnly
         }
       }
     `;
@@ -30,7 +31,10 @@ const fetchAllQuestionsFromLeetCode = async () => {
       throw new Error(`LeetCode API returned status ${response.status}`);
     }
 
-    return response.data.data.allQuestions;
+    // Filter out questions that are premium
+    return response.data.data.allQuestions.filter(
+      (question) => !question.isPaidOnly
+    );
   } catch (error) {
     console.error('Error fetching questions from LeetCode API:', error);
     throw error;
