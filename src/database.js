@@ -5,18 +5,16 @@ dotenv.config();
 
 const connectToMongoDb = async () => {
   const MONGO_CLIENT = process.env.ATLAS_URI || '';
-  await mongoose.connect(MONGO_CLIENT, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
 
-  const mongoDb = mongoose.connection;
-  mongoDb.once('open', () => {
-    console.log('SUCCESS: Connected to the MongoDB database');
-  });
-  mongoDb.on('error', (error) => {
+  try {
+    return await mongoose.connect(MONGO_CLIENT, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  } catch (error) {
     console.error('MongoDB database connection error:', error);
-  });
+    throw error;
+  }
 };
 
 const closeMongoDbConnection = async () => {

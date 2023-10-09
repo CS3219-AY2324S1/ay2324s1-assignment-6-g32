@@ -3,11 +3,11 @@ const { fetchAllQuestionsFromLeetCode } = require('../leetcodeApi');
 
 exports.handler = async (event, context) => {
   try {
-    // Connect to MongoDB
-    await connectToMongoDb();
-
-    // Fetch questions from LeetCode GraphQL API
-    const questions = await fetchAllQuestionsFromLeetCode();
+    // Wait for MongoDB connection and LeetCode questions to be fetched
+    const [connection, questions] = await Promise.all([
+      connectToMongoDb(),
+      fetchAllQuestionsFromLeetCode(),
+    ]);
 
     // Add or update each question in the database
     for (const question of questions) {
