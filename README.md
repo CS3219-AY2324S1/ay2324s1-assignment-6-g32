@@ -17,7 +17,11 @@ Download and install these software if you do not have them locally.
 3. Configure AWS Credentials
    `aws configure`
 
-- AWS Access Key can be created under Identity and Access Management's (IAM) Security Credential to enable sending of programmatic calls to AWS from the AWS CLI
+- [AWS Access Key can be created under Identity and Access Management's (IAM) Security Credential to enable sending of programmatic calls to AWS from the AWS CLI](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user_manage_add-key.html)
 
 4. Deploy the Services
    `serverless deploy`
+
+5. Check Deployment Status
+
+- Status regarding the deployed Lambda function on AWS Lambda console.
